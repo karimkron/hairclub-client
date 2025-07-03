@@ -151,7 +151,7 @@ const SobreMi = () => {
             {/* Contenido */}
             <div className="space-y-4 md:space-y-6 text-center md:text-left">
               <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-white">
-                Carlos Rodríguez
+                Youssef 
               </h3>
               <p className="text-amber-600 font-medium">
                 Maestro Barbero & Estilista Profesional

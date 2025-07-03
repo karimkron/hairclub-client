@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Scissors, ChevronLeft, ChevronRight } from 'lucide-react';
+import {ChevronLeft, ChevronRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
@@ -12,7 +12,7 @@ const Hero = () => {
   const slides = [
     {
       image: "https://images.unsplash.com/photo-1621605815971-fbc98d665033?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-      title: "BARBER SHOP",
+      title: "HAIR CLUB",
       subtitle: "Experiencia y estilo en cada corte",
       buttonText: "Reservar Cita",
       // Acción del botón: abre la URL de inicio de sesión en una nueva pestaña.
@@ -33,7 +33,7 @@ const Hero = () => {
       buttonAction: () => navigate('/servicios') // Navega a la página de servicios.
     },
     {
-      image: "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      image: "https://images.unsplash.com/photo-1512690459411-b9245aed614b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
       title: "PROFESIONAL",
       subtitle: "Maestro en el arte del corte",
       buttonText: "Conóceme",
@@ -159,10 +159,14 @@ const Hero = () => {
                       (index < currentImageIndex ? '-translate-x-full opacity-0' : 'translate-x-full opacity-0')
                     )}`}
               >
-                {/* Icono de la diapositiva */}
-                <div className="mb-4 md:mb-6 bg-amber-600/90 p-4 md:p-6 rounded-full">
-                  <Scissors className="h-10 w-10 md:h-16 md:w-16 text-white" />
-                </div>
+              {/* Icono del logo de la diapositiva */}
+              <div className="mb-4 md:mb-6 bg-black p-4 md:p-6 rounded-full">
+                 <img 
+                   src="/images/logo_hairClub_preview.png" 
+                   alt="Logo" 
+                   className="h-16 w-16 md:h-28 md:w-28 object-contain"
+                />
+              </div>
                 
                 {/* Título y subtítulo de la diapositiva */}
                 <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold text-white mb-2 md:mb-4 tracking-wider text-center">
