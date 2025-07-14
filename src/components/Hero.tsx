@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import {ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
@@ -46,17 +46,8 @@ const Hero = () => {
     }
   ];
 
-  // Efecto para manejar el cambio automático de diapositivas cada 12 segundos.
-  useEffect(() => {
-    const interval = setInterval(() => {
-      handleAutoSlide();
-    }, 12000);
-
-    return () => clearInterval(interval); // Limpia el intervalo cuando el componente se desmonta.
-  }, [currentImageIndex]);
-
-  // Función para manejar el cambio automático de diapositivas.
-  const handleAutoSlide = () => {
+  // Función para manejar el cambio automático de diapositivas usando useCallback para evitar dependencias.
+  const handleAutoSlide = useCallback(() => {
     if (direction === 'forward') {
       if (currentImageIndex === slides.length - 1) {
         setDirection('backward');
@@ -72,7 +63,16 @@ const Hero = () => {
         setCurrentImageIndex(prev => prev - 1);
       }
     }
-  };
+  }, [direction, currentImageIndex, slides.length]);
+
+  // Efecto para manejar el cambio automático de diapositivas cada 12 segundos.
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleAutoSlide();
+    }, 12000);
+
+    return () => clearInterval(interval); // Limpia el intervalo cuando el componente se desmonta.
+  }, [handleAutoSlide]);
 
   // Función para avanzar a la siguiente diapositiva.
   const nextImage = (e: React.MouseEvent) => {
@@ -160,11 +160,11 @@ const Hero = () => {
                     )}`}
               >
               {/* Icono del logo de la diapositiva */}
-              <div className="mb-4 md:mb-6 bg-black p-4 md:p-6 rounded-full">
+              <div className="mb-4 md:mb-6 bg-transparent  p-4 md:p-6 rounded-full">
                  <img 
                    src="/images/logo_hairClub_preview.png" 
                    alt="Logo" 
-                   className="h-16 w-16 md:h-28 md:w-28 object-contain"
+                   className="h-16 w-16 md:h-48 md:w-48 object-contain"
                 />
               </div>
                 
@@ -192,4 +192,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;  
+export default Hero;

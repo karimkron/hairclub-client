@@ -86,7 +86,7 @@ const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 transition-all duration-300 z-50 
         ${isVisible ? 'translate-y-0' : '-translate-y-full'}
-        ${hasScrolled ? 'bg-black/85 backdrop-blur-sm shadow-lg' : 'bg-black/85 backdrop-blur-sm shadow-lg'}`}
+        ${hasScrolled ? 'bg-transparent  backdrop-blur-sm shadow-lg' : 'bg-transparent backdrop-blur-sm shadow-lg'}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
