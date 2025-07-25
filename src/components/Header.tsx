@@ -95,7 +95,7 @@ const Header = () => {
            <img 
              src="/images/logo.png" 
              alt="Logo" 
-             className="h-14 w-auto"
+             className="h-8 md:h-10 w-auto"
            />
          </Link>
 
